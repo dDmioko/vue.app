@@ -1,18 +1,20 @@
 <template>
     <div class="backdrop" @click.self="closeModal">
         <div class="modal">
-            <h1>{{ header }}</h1>
-            <p>{{ text }}</p>
+            <slot name="header">
+                <h1 v-html="header" />
+            </slot>
+            <slot></slot>
         </div>
     </div>
 </template>
 
 <script>
 export default {
-    props: ["header", "text"],
+    props: ["header"],
     methods: {
         closeModal() {
-            this.$emit('close');
+            this.$emit("close");
         },
     },
 };

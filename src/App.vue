@@ -1,10 +1,10 @@
 <template>
-    <Modal
-        v-show="showModal"
-        :header="modalHeader"
-        :text="modalText"
-        @close="toggleModal"
-    />
+    <Modal v-show="showModal" @close="toggleModal">
+        <template #header>
+            <h1>modalHeader</h1>
+        </template>
+        <p>{{ modalText }}</p>
+    </Modal>
     <h1>{{ title }}</h1>
     <br />
     <button @click="toggleModal">Open modal</button>
@@ -22,7 +22,7 @@ export default {
         return {
             title: "Some new title",
             modalHeader: "Ipsum header",
-            modalText: "123",
+            modalText: "Lorem Ipsum!",
             showModal: false,
         };
     },
