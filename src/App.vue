@@ -1,13 +1,21 @@
 <template>
+    <Modal :header="modalHeader" :text="modalText" />
     <h1>{{ title }}</h1>
 </template>
 
 <script>
+import Modal from "./components/Modal.vue";
+
 export default {
     name: "App",
+    components: {
+        Modal,
+    },
     data() {
         return {
             title: "Some new title",
+            modalHeader: 'Ipsum header',
+            modalText: '123',
         };
     },
 };
