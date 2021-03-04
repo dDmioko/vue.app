@@ -1,35 +1,29 @@
 <template>
-    <Modal v-show="showModal" @close="toggleModal">
-        <template #header>
-            <h1>modalHeader</h1>
-        </template>
-        <p>{{ modalText }}</p>
-    </Modal>
-    <h1>{{ title }}</h1>
-    <br />
-    <button @click="toggleModal">Open modal</button>
+    <h1>Ninja Reaction Timer</h1>
+    <button @click="onNinjaStart" :disabled="showNinjaGame">Play</button>
+    <Block v-if="showNinjaGame" :delay="delay" @close="onNinjaClose" />
 </template>
 
 <script>
-import Modal from "./components/Modal.vue";
+import Block from "./components/Block.vue";
 
 export default {
     name: "App",
-    components: {
-        Modal,
-    },
+    components: { Block },
     data() {
         return {
-            title: "Some new title",
-            modalHeader: "Ipsum header",
-            modalText: "Lorem Ipsum!",
-            showModal: false,
+            showNinjaGame: false,
+            delay: null,
         };
     },
     methods: {
-        toggleModal() {
-            this.showModal = !this.showModal;
+        onNinjaStart() {
+            this.delay = 2000 + Math.random() * 5000;
+            this.showNinjaGame = true;
         },
+        onNinjaClose() {
+            this.showNinjaGame = false;
+        }
     },
 };
 </script>
@@ -40,12 +34,7 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #444;
     margin-top: 60px;
-}
-h1 {
-    border-bottom: 1px solid #ddd;
-    display: inline-block;
-    padding-bottom: 10px;
 }
 </style>
