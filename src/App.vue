@@ -1,6 +1,13 @@
 <template>
-    <Modal :header="modalHeader" :text="modalText" />
+    <Modal
+        v-show="showModal"
+        :header="modalHeader"
+        :text="modalText"
+        @close="toggleModal"
+    />
     <h1>{{ title }}</h1>
+    <br />
+    <button @click="toggleModal">Open modal</button>
 </template>
 
 <script>
@@ -14,9 +21,15 @@ export default {
     data() {
         return {
             title: "Some new title",
-            modalHeader: 'Ipsum header',
-            modalText: '123',
+            modalHeader: "Ipsum header",
+            modalText: "123",
+            showModal: false,
         };
+    },
+    methods: {
+        toggleModal() {
+            this.showModal = !this.showModal;
+        },
     },
 };
 </script>
