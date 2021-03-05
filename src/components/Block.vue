@@ -12,7 +12,7 @@ export default {
             reactionTime: 0,
         };
     },
-    created() {
+    mounted() {
         setTimeout(() => {
             this.showBlock = true;
             this.startTimer();

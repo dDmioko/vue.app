@@ -1,16 +1,32 @@
 <template>
-    <h2 class="result">Score: {{ score }} ms</h2>
+    <p>Score: {{ score }} ms</p>
+    <p class="rank">{{ rank }}</p>
 </template>
 
 <script>
 export default {
     props: ["score"],
+    data() {
+        return {
+            rank: null,
+        };
+    },
+    mounted() {
+        if (this.score < 250) {
+            this.rank = "Ninja Fingers";
+        } else if (this.score < 400) {
+            this.rank = "Rapid reflexes";
+        } else {
+            this.rank = "Snail pace...";
+        }
+    },
 };
 </script>
 
 <style>
-.result {
+.rank{
+    font-size: 24px;
+    font-weight: bold;
     color: #0faf87;
-    text-align: center;
 }
 </style>
