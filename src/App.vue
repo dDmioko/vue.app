@@ -1,36 +1,30 @@
-<template>
-    <h1>Ninja Reaction Timer</h1>
-    <button @click="onNinjaStart" :disabled="showNinjaGame">Play</button>
-    <Block v-if="showNinjaGame" :delay="delay" @close="onNinjaClose" />
-    <Results v-if="showResults" :score='score' />
+<template class="app">
+    <h1>Vue.app</h1>
+    <button
+        v-for="tab in tabs"
+        :key="tab"
+        class="app__tab-button"
+        :class="{ active: currentTab === tab }"
+        @click="currentTab = tab"
+        v-text="tab"
+    />
+    <br />
+    <div class="app__tab">
+        <component v-bind:is="currentTab"></component>
+    </div>
 </template>
 
 <script>
-import Block from "./components/Block.vue";
-import Results from "./components/Results.vue";
+import NinjaGame from "./components/ninja-reaction/NinjaGame.vue";
 
 export default {
     name: "App",
-    components: { Block, Results },
+    components: { NinjaGame },
     data() {
         return {
-            showNinjaGame: false,
-            showResults: false,
-            delay: null,
-            score: null,
+            currentTab: null,
+            tabs: ["NinjaGame", "About"],
         };
-    },
-    methods: {
-        onNinjaStart() {
-            this.delay = 2000 + Math.random() * 5000;
-            this.showNinjaGame = true;
-            this.showResults = false;
-        },
-        onNinjaClose(result) {
-            this.showNinjaGame = false;
-            this.score = result;
-            this.showResults = true;
-        },
     },
 };
 </script>
@@ -43,5 +37,26 @@ export default {
     text-align: center;
     color: #444;
     margin-top: 60px;
+}
+.app__tab {
+    border: 1px solid #ccc;
+    padding: 12px;
+    margin: 16px 0;
+}
+.app__tab-button {
+    padding: 6px 10px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    background: #f0f0f0;
+    margin-bottom: -1px;
+    margin-right: -1px;
+}
+.app__tab-button:hover {
+    background: #e0e0e0;
+}
+.app__tab-button.active {
+    background: #e0e0e0;
 }
 </style>
