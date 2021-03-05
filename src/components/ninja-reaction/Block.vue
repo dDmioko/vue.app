@@ -1,5 +1,7 @@
 <template>
-    <div v-if="showBlock" class="block__div" @click="stopTimer">Click me</div>
+    <div v-show="showBlock" class="block__div" @click="stopTimer">
+        Click me
+    </div>
 </template>
 
 <script>
