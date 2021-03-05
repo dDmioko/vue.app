@@ -10,7 +10,6 @@ import Block from "./Block.vue";
 import Results from "./Results.vue";
 
 export default {
-    name: "App",
     components: { Block, Results },
     data() {
         return {
