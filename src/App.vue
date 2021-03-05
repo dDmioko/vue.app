@@ -1,4 +1,4 @@
-<template class="app">
+<template>
     <h1>Vue.app</h1>
     <button
         v-for="tab in tabs"
