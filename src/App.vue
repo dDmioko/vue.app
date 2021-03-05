@@ -3,14 +3,16 @@
     <input type="checkbox" v-model="isBordered" />
     <label class="app__label">Bordered</label>
     <br />
-    <button
-        v-for="tab in tabs"
-        :key="tab"
-        class="app__tab-button"
-        :class="{ active: currentTab === tab }"
-        @click="currentTab = tab"
-        v-text="tab"
-    />
+    <div :class="'app__menu'">
+        <button
+            v-for="tab in tabs"
+            :key="tab"
+            class="app__tab-button"
+            :class="{ active: currentTab === tab }"
+            @click="currentTab = tab"
+            v-text="tab"
+        />
+    </div>
     <div class="app__tab" :class="{ bordered: isBordered }">
         <component v-bind:is="currentTab"></component>
     </div>
@@ -18,10 +20,11 @@
 
 <script>
 import NinjaGame from "./components/ninja-reaction/NinjaGame.vue";
+import About from "./components/About.vue";
 
 export default {
     name: "App",
-    components: { NinjaGame },
+    components: { NinjaGame, About },
     data() {
         return {
             isBordered: false,
@@ -41,7 +44,14 @@ export default {
     color: #444;
     margin-top: 60px;
 }
-.app__label{
+.app__menu {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1px;
+}
+.app__label {
     font-size: 14px;
 }
 .app__tab {
