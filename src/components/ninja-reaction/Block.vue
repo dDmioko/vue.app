@@ -1,5 +1,5 @@
 <template>
-    <div v-if="showBlock" class="block" @click="stopTimer">Click me</div>
+    <div v-if="showBlock" class="block__div" @click="stopTimer">Click me</div>
 </template>
 
 <script>
@@ -36,7 +36,7 @@ export default {
 </script>
 
 <style>
-.block {
+.block__div {
     width: 400px;
     border-radius: 20px;
     background: #0faf87;

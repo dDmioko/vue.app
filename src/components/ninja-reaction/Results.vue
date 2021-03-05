@@ -1,6 +1,6 @@
 <template>
     <p>Score: {{ score }} ms</p>
-    <p class="rank">{{ rank }}</p>
+    <p class="results__rank">{{ rank }}</p>
 </template>
 
 <script>
@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style>
-.rank{
+.results__rank{
     font-size: 24px;
     font-weight: bold;
     color: #0faf87;
