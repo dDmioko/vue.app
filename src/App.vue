@@ -1,8 +1,5 @@
 <template>
     <h1>Vue.app</h1>
-    <input type="checkbox" v-model="isBordered" />
-    <label class="app__label">Bordered</label>
-    <br />
     <div :class="'app__menu'">
         <button
             v-for="tab in tabs"
@@ -13,7 +10,7 @@
             v-text="tab"
         />
     </div>
-    <div class="app__tab" :class="{ bordered: isBordered }">
+    <div class="app__tab">
         <component v-bind:is="currentTab"></component>
     </div>
 </template>
@@ -27,7 +24,6 @@ export default {
     components: { NinjaGame, About },
     data() {
         return {
-            isBordered: false,
             currentTab: null,
             tabs: ["NinjaGame", "About"],
         };
@@ -57,8 +53,6 @@ export default {
 .app__tab {
     padding: 12px;
     margin: 16px 0;
-}
-.app__tab.bordered {
     min-height: 400px;
     border: 1px solid #ccc;
 }
