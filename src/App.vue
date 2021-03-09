@@ -40,6 +40,10 @@ export default {
     color: #444;
     margin-top: 60px;
 }
+body {
+    margin: 0;
+    background: #eee;
+}
 .app__menu {
     display: flex;
     flex-direction: row;
