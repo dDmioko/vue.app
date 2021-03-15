@@ -10,7 +10,7 @@ export default {};
 </script>
 
 <style>
-from{
+form {
     max-width: 420px;
     margin: 30px auto;
     padding: 40px;
@@ -18,7 +18,7 @@ from{
     background: white;
     text-align: left;
 }
-label{
+label {
     display: inline-block;
     margin: 25px 0 15px;
     color: #aaa;
@@ -27,12 +27,12 @@ label{
     text-transform: uppercase;
     letter-spacing: 1px;
 }
-input{
+input {
     display: block;
     padding: 10px 6px;
     width: 100%;
     box-sizing: border-box;
-    border:none;
+    border: none;
     border-bottom: 1px solid #ddd;
     color: #555;
 }
